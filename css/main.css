@@ -1,0 +1,159 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.nav {
+    background-color: #2fb8f2;
+}
+.nav-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+}
+
+.nav .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.nav .nav-logo {
+    padding-top: 24px;
+}
+
+
+.main-container {
+    margin-top: 120px;
+}
+
+.container {
+    width: 600px;
+    height: auto;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#game {
+    padding-top: 40px;
+}
+.card-container {
+    position: relative;
+    width: 120px;
+    height: 160px;
+    float: left;
+    perspective: 800px;
+}
+.card {
+        position: absolute;
+        width: 110px;
+        height: 150px;
+        margin: 0 auto;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+        cursor: pointer;
+}
+.card figure {
+    position: absolute;
+    margin: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 90px;
+    font-weight: bold;
+    line-height: 150px;
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 4px 4px 8px #888;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.card .front.nemo {
+    background-image: url('imgs/nemo.jpg');
+    background-position: center;
+    background-size: 200px;
+}
+
+.card .front.nene {
+    background-image: url('imgs/reine-des-neiges.jpg');
+    background-position: center;
+    background-size: 300px;
+}
+
+.card .front.peppa {
+    background-image: url('imgs/peppa-pig.jpg');
+    background-position: center;
+    background-size: 270px;
+}
+
+.card .front.paw-patrol {
+    background-image: url('imgs/paw-patrol.jpg');
+    background-position: center;
+    background-size: 100px;
+}
+
+.card .front.raiponce {
+    background-image: url('imgs/raiponce.jpg');
+    background-position: center;
+    background-size: 150px;
+}
+
+.card .front.george {
+    background-image: url('imgs/george.jpg');
+    background-position: center;
+    background-size: 118px;
+}
+
+.card .back {
+    background-color: #e63838;
+    transform: rotateY( 180deg );
+}
+.card.flipped {
+  transform: rotateY( 180deg );
+}
+
+#params {
+    padding-top: 40px;
+    clear: both;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px #888;
+}
+
+#reset {
+    border-bottom: 2px solid #207aa0;
+    background-color: #2fb8f2;
+}
+
+#reset:hover {
+    border-bottom: 2px solid #10506b;
+    background-color: #207aa0;
+    box-shadow: 0px 0px 0px #888;
+}
+
+#type-game {
+    border-bottom: 2px solid #0d7142;
+    background-color: #00bd64;
+}
+
+#type-game:hover {
+    border-bottom: 2px solid #0f5032;
+    background-color: #0d7142;
+    box-shadow: 0px 0px 0px #888;
+}
