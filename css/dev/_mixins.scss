@@ -1,0 +1,110 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin transition($prop, $delay) {
+   -webkit-transition: $prop $delay ease;
+    -moz-transition: $prop $delay ease;
+    -o-transition: $prop $delay ease;
+    transition: $prop $delay ease;
+}
+
+@mixin background-size($value) {
+    -webkit-background-size: $value;
+    -moz-background-size: $value;
+    -o-background-size: $value;
+    background-size: $value; }
+
+
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+@mixin transformOrigin($transform) {
+     -moz-transform-origin: $transform;
+	     -o-transform-origin: $transform;
+	    -ms-transform-origin: $transform;
+	-webkit-transform-origin: $transform;
+          transform-origin: $transform;
+
+}
+
+@mixin transformStyle($transform) {
+     -moz-transform-style: $transform;
+	     -o-transform-style: $transform;
+	    -ms-transform-style: $transform;
+	-webkit-transform-style: $transform;
+          transform-style: $transform;
+}
+
+@mixin flexbox-center() {
+     display: -ms-flexbox;
+     display: -webkit-flex;
+     display: flex;
+
+     -ms-flex-align: center;
+     -webkit-align-items: center;
+     -webkit-box-align: center;
+
+     align-items: center;
+}
+
+@mixin user-select() {
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin perspective($string) {
+    -webkit-perspective: $string;
+       -moz-perspective: $string;
+            perspective: $string;
+}
+
+@mixin backface-visibility($string) {
+    -webkit-backface-visibility: $string;
+       -moz-backface-visibility: $string;
+         -o-backface-visibility: $string;
+            backface-visibility: $string;
+}

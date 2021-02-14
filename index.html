@@ -10,20 +10,37 @@
   <nav class="nav nav-header">
     <div class="container">
       <div class="nav-logo">
-        <img src="/imgs/logo_clara_games.png">
+        <img class="disable-select" src="/imgs/logo_clara_games.png">
       </div>
     </div>
   </nav>
 
   <div class="main-container">
-    <div id="game" class="container">
+    <div id="memory-game" class="container">
+      <span class="title"><img src="/imgs/memorygame/logo_game.png"></span>
+      <div id="params" class="container">
+        <button id="reset">Rejouez la partie</button>
+        <button id="type-game">Jouer avec des chiffres</button>
+      </div>
+      <div id="win-game">
+        <p>Bravo ! tu as gagné la partie avec un score de <span class="view-score"></span></p>
+        <button id="restart">Rejouez la partie</button>
+      </div>
+      <div id="score-game">
+        Score : <span>99</span>
+      </div>
+      <div id="version">Version 0</div>
     </div>
-    <div id="params" class="container">
-      <button id="reset">Rejouez la partie</button>
-      <button id="type-game">Jouer avec des chiffres</button>
-    </div>
+
   </div>
 
+  <audio preload="auto" id="clic-sound">
+    <source src="/sound/clic.wav" type="audio/wav">
+  </audio>
+
+  <audio preload="auto" id="win-sound">
+    <source src="/sound/applause.wav" type="audio/wav">
+  </audio>
 
   <footer>
 
