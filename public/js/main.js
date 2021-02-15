@@ -15,14 +15,15 @@ var cardValue1     = '';
 var cardValue2     = '';
 var cardId1        = '';
 var cardId2        = '';
-var nbCard         = 10;
+var nbCard         = 24;
 var typeGame       = 'letter';
 var theme          = ['nemo', 'nene', 'peppa', 'paw-patrol', 'raiponce', 'george'];
 var oldTheme       = 'nemo';
 var forWin         = 0;
 var score          = 100;
 var scoreInterval  = null;
-var version        = '0.1 Alpha';
+var version        = '0.3 Alpha';
+var nbCoups        = 0;
 
 $(document).ready(function(){
 
@@ -44,31 +45,41 @@ $(document).ready(function(){
     // click Button
     $('.card').click(function() {
         if(cardValue1 == '' || cardValue2 == '') {
-            playSoundClic();
-
-            $(this).addClass('flipped');
             var cardId = $(this).attr('id');
-            var cardValue = $('#' + cardId + ' figure.back').html();
-
-            if(cardValue1 == '') {
-                cardValue1 = cardValue;
-                cardId1 = cardId;
-            } else {
-                cardValue2 = cardValue;
-                cardId2 = cardId;
+            $('#' + cardId).css('left', '4px');
+            if($('#' + cardId).hasClass('flipped')) {
+                return false;
             }
+            if(cardId != cardId1) {
+                playSoundClic();
+                $(this).addClass('flipped');
+                var cardValue = $('#' + cardId + ' figure.back').html();
 
-            if(cardValue1 == cardValue2) {
-                cardValue1 = '';
-                cardValue2 = '';
-                forWin++;
-                if(forWin == nbCard / 2) {
-                    winGame();
+                if(cardValue1 == '') {
+                    cardValue1 = cardValue;
+                    cardId1 = cardId;
+                } else {
+                    cardValue2 = cardValue;
+                    cardId2 = cardId;
+                }
+
+                if(cardValue1 == cardValue2) {
+                    cardValue1 = '';
+                    cardValue2 = '';
+                    $('#' + cardId1).addClass('card-win');
+                    $('#' + cardId2).addClass('card-win');
+                    forWin++;
+                    if(forWin == nbCard / 2) {
+                        winGame();
+                    } else {
+                        playSound2Card();
+                    }
                 }
             }
-
         } else {
             if(cardValue1 != cardValue2) {
+                $('#' + cardId1).css('left', '0');
+                $('#' + cardId2).css('left', '0');
                 $('#' + cardId1).removeClass('flipped');
                 $('#' + cardId2).removeClass('flipped');
             } else {
@@ -76,9 +87,12 @@ $(document).ready(function(){
             }
             cardValue1 = '';
             cardValue2 = '';
+            cardId1 = '';
+            cardId2 = '';
+            nbCoups++;
+            $('#score-game span.coup').html(nbCoups);
         }
     })
-
 });
 
 
@@ -99,15 +113,18 @@ function initGame()
 {
     $('#version').html('Version ' + version);
     $('.card').removeClass('flipped');
+    $('.card').removeClass('card-win');
     $('#win-game').removeClass('open');
     $('.view-score').html('99');
+    $('#score-game span.coup').html('0');
     clearInterval(scoreInterval);
 
     cardValue1 = '';
     cardValue2 = '';
     cards      = [];
-    score      = 100;
-    forWin     = 0
+    score      = 0;
+    forWin     = 0;
+    nbCoups    = 0;
 
     var count = 0;
     while(count <= (nbCard / 2) - 1) {
@@ -132,9 +149,11 @@ function initGame()
 
     // score interval
     scoreInterval = setInterval(function(){
-        score = score - 1;
-        $('#score-game span').html(score);
-    }, 2000);
+        score = score + 1;
+        minutes = Math.floor(score / 60);
+        secondes = score % 60;
+        $('#score-game span.time').html(minutes + '<small>mn</small>&nbsp' + secondes + '<small>s</small>');
+    }, 1000);
 }
 
 // Affiche les cartes sur l'écran
@@ -173,9 +192,12 @@ function addCards()
  */
 function winGame() {
     clearInterval(scoreInterval);
-    playSoundWin();
-    $('.view-score').html(score);
+    minutes = Math.floor(score / 60);
+    secondes = score % 60;
+    $('#view-score-time').html(minutes + '<small>mn</small>&nbsp' + secondes + '<small>s</small>');
+    $('#view-score-coups').html(nbCoups + ' Coups');
     $('#win-game').addClass('open');
+    playSoundWin();
 }
 
 /**
@@ -188,6 +210,10 @@ function playSoundClic() {
 
 function playSoundWin() {
     $('#win-sound')[0].play();
+}
+
+function playSound2Card() {
+    $('#win-2card')[0].play();
 }
 
 /**

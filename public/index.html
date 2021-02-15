@@ -23,11 +23,16 @@
         <button id="type-game">Jouer avec des chiffres</button>
       </div>
       <div id="win-game">
-        <p>Bravo ! tu as gagné la partie avec un score de <span class="view-score"></span></p>
+        <p>
+          <big>Bravo !</big><br>
+          Tu as gagné la partie en
+          <span id="view-score-coups">99 Coups</span>
+          et en <span id="view-score-time">0<small>mn</small>&nbsp;00<small>s</small></span>
+        </p>
         <button id="restart">Rejouez la partie</button>
       </div>
       <div id="score-game">
-        Score : <span>99</span>
+        Nombre de Coups joué : <span class="coup">0</span>&nbsp; | Temps : <span class="time">0<small>mn</small>&nbsp;00<small>s</small></span>
       </div>
       <div id="version">Version 0</div>
     </div>
@@ -40,6 +45,10 @@
 
   <audio preload="auto" id="win-sound">
     <source src="/sound/applause.wav" type="audio/wav">
+  </audio>
+
+  <audio preload="auto" id="win-2card">
+    <source src="/sound/2card.wav" type="audio/wav">
   </audio>
 
   <footer>

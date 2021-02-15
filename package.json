@@ -1,8 +1,8 @@
 {
   "name": "clara_memory",
   "version": "1.0.0",
-  "description": "",
-  "author": "",
+  "description": "petit jeux de mémoire de type Memory Card",
+  "author": "Alain Dessi",
   "devDependencies": {
         "grunt": "^0.4.5",
         "grunt-contrib-compass": "^1.0.4",

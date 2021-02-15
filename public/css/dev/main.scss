@@ -57,11 +57,11 @@ body {
 
 
 .main-container {
-    margin-top: 120px;
+    margin-top: 100px;
 }
 
 .container {
-    width: 600px;
+    width: 960px;
     height: auto;
     margin-top: 50px;
     margin-right: auto;
@@ -77,9 +77,10 @@ body {
 #memory-game {
     position: relative;
     padding: 60px;
-    height: 320px;
+    height: 472px;
     border-radius: 16px;
     border: 12px solid #fff;
+    background-size: cover;
     &.nemo {
         background-image: url('imgs/bck_nemo.jpg');
     }
@@ -107,7 +108,7 @@ body {
     }
     #params {
         position: absolute;
-        bottom: 12px;
+        bottom: -32px;
         left: 12px;
         padding-top: 40px;
         clear: both;
@@ -118,10 +119,10 @@ body {
         top: 50%;
         left: 50%;
         width: 400px;
-        height: 70px;
+        height: 82px;
         margin-left: -200px;
-        margin-top: -30px;
-        font-size: 16px;
+        margin-top: -52px;
+        font-size: 18px;
         line-height: 32px;
         text-align: center;
         color: #fff;
@@ -145,10 +146,12 @@ body {
         padding: 2px 16px;
         font-size: 16px;
         border-radius: 12px;
-        color: #333;
+        color: #444;
         background-color: #fff;
+        font-size: 12px;
         span {
             font-weight: bold;
+            font-size: 16px;
         }
         .view-score {
             font-weight: bold;
@@ -177,7 +180,8 @@ body {
     height: 150px;
     margin: 0 auto;
     transform-style: preserve-3d;
-    @include transition(transform, 1s);
+    transform-origin: center;
+    @include transition(transform, 0.3s);
     cursor: pointer;
     figure {
         position: absolute;
@@ -191,54 +195,70 @@ body {
         text-align: center;
         color: #fff;
         border-radius: 8px;
+        border: 2px solid #fff;
         box-shadow: 2px 2px 6px rgba(0,0,0,0.35);
         @include backface-visibility("hidden");
     }
     .front {
+        background-size: cover;
         &.nemo {
             background-image: url('imgs/nemo.jpg');
             background-position: center;
-            background-size: 200px;
+            // background-size: 200px;
         }
         &.nene {
             background-image: url('imgs/reine-des-neiges.jpg');
             background-position: center;
-            background-size: 300px;
+            // background-size: 300px;
         }
         &.peppa {
             background-image: url('imgs/peppa-pig.jpg');
             background-position: center;
-            background-size: 270px;
+            // background-size: 270px;
         }
         &.paw-patrol {
             background-image: url('imgs/paw-patrol.jpg');
             background-position: center;
-            background-size: 100px;
+            // background-size: 100px;
         }
         &.raiponce {
             background-image: url('imgs/raiponce.jpg');
             background-position: center;
-            background-size: 150px;
+            // background-size: 150px;
         }
         &.george {
             background-image: url('imgs/george.jpg');
             background-position: center;
-            background-size: 118px;
+            // background-size: 118px;
         }
     }
     .back {
-        background-color: #e63838;
-        transform: rotateY( 180deg );
+        // background-color: #e63838;
+        background: #FF512F;
+        background: linear-gradient(to bottom, #F09819, #FF512F);
+        background: -webkit-linear-gradient(to bottom, #F09819, #FF512F);
+        transform: rotateY(180deg);
     }
     &.flipped {
-      transform: rotateY( 180deg );
+        transform: rotateY(180deg);
+    }
+    &.card-win {
+        // background-color: green;
+        // filter: blur(1px);
+        opacity: 0.65;
+        figure {
+            background: #888;
+            box-shadow: none;
+        }
     }
 }
 
 
 button {
     padding: 8px 12px;
-    font-size: 12px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: -1px;
     border: none;
     border-radius: 4px;
     color: #fff;
